@@ -1,0 +1,174 @@
+@import 'tailwindcss';
+
+:root {
+  --bg: #16261f;
+  --surface: #1e3327;
+  --surface-2: #22402f;
+  --edge: #2e5240;
+  --gold: #f2b84b;
+  --teal: #4fb8a6;
+  --coral: #e8734a;
+  --cream: #f5efe3;
+  --muted: #93ac9f;
+}
+
+:root[data-theme='light'] {
+  --bg: #f2f6ef;
+  --surface: #ffffff;
+  --surface-2: #e8f0e4;
+  --edge: #cbdcc4;
+  --gold: #c98a12;
+  --teal: #2f8577;
+  --coral: #c9532c;
+  --cream: #1a2b22;
+  --muted: #5c7466;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-edge: var(--edge);
+  --color-gold: var(--gold);
+  --color-teal: var(--teal);
+  --color-coral: var(--coral);
+  --color-cream: var(--cream);
+  --color-muted: var(--muted);
+
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--cream);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+}
+
+/* Section 3 — landing reload animation */
+.mountain-bg {
+  background-image: url('/mountain.png');
+  background-size: cover;
+  background-position: center;
+  animation: kenburns 6s ease-out forwards;
+  transform-origin: center;
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-content > * {
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out forwards;
+}
+.hero-content > *:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.hero-content > *:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.hero-content > *:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mountain-bg,
+  .hero-content > * {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.glass-card {
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+  backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in srgb, var(--edge) 80%, transparent);
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: #16261f;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: filter 0.15s ease;
+}
+.btn-gold:hover {
+  filter: brightness(1.07);
+}
+.btn-gold:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: none;
+}
+
+.btn-ghost {
+  border: 1px solid var(--edge);
+  color: var(--cream);
+  border-radius: 999px;
+  font-weight: 500;
+}
+.btn-ghost:hover {
+  background: var(--surface-2);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--edge);
+  border-radius: 16px;
+}
+
+.money {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+.input {
+  width: 100%;
+  background: var(--surface-2);
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--cream);
+  outline: none;
+}
+.input::placeholder {
+  color: color-mix(in srgb, var(--muted) 80%, transparent);
+}
+.input:focus {
+  border-color: var(--gold);
+}
