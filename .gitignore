@@ -1,0 +1,36 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+dist-ssr/
+.vite/
+*.tsbuildinfo
+
+# env / secrets
+.env
+.env.local
+.env.*.local
+
+# logs
+*.log
+
+# coverage
+coverage/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Supabase local state
+supabase/.temp/
+supabase/.branches/
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# leftover prototype asset (oversized, unused)
+assets/image.png
+
+# personal notes
+guide/
